@@ -1,0 +1,6 @@
+aiogram
+bs4
+requests
+nest_asyncio
+dostoevsky
+flashtext
