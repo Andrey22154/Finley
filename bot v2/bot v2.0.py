@@ -13,7 +13,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 nest_asyncio.apply()
 
 bot_token = os.environ.get(
-    'BOT_TOKEN', '6920057637:AAFu4r9aH8ayP3iP-rS87uQ1hgRg_JvAr4s'
+    'BOT_TOKEN', 'token'
 )
 bot = Bot(token=bot_token)
 dp = Dispatcher(bot, storage=MemoryStorage())
