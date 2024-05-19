@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: finley_db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: finley
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finley_app
+    depends_on:
+      - db
+    environment:
+      - BOT_TOKEN=yourbottoken
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=finley
+      - DB_USER=myuser
+      - DB_PASSWORD=mypassword
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:
+

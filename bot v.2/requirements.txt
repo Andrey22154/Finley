@@ -1,0 +1,9 @@
+aiogram==2.25.2
+nest_asyncio
+numpy
+matplotlib
+yfinance
+pandas
+scikit-learn
+xgboost
+psycopg2-binary
